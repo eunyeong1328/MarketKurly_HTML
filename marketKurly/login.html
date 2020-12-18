@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인 창</title>
+    <link href="loginStyle.css" rel="stylesheet" type="text/css">
+    <script>
+        function frm_login() {
+            var loginform = document.loginform;
+            var id = loginform.id.value;
+            var password = loginform.password.value;
+            if (id == "" || id.length == 0) {
+                alert("아이디를 입력해주세요");
+            } else if (password == "" || password.length == 0) {
+                alert("비밀번호를 입력해주세요")
+            } else {
+                loginform.method = "get";
+                loginform.action = "main.html";
+                loginform.submit();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- 전체 영역 -->
+    <div class="container">
+        <!--헤더-->
+        <header id="header_main">
+            <!--사용자 메뉴-->
+            <div id="userMenu">
+                <ul id="list_user">
+                    <li class="user_delivery"> <a href="#">배송지역 검색</a></li>
+                    <li class="user_member"> <a href="#">고객센터</a> |&nbsp; </li>
+                    <li class="user_login"> <a href="join.html">회원가입</a> |&nbsp; </li>
+                    <li class="user_join"> <a href="login.html">로그인</a> |&nbsp; </li>
+                </ul>
+            </div>
+
+            <!--회사 로고-->
+            <div id="headerlogo">
+                <h1 class="logo">
+                    <a href="main.html" class="logo_image">
+                        <span id="gnbLogoContainer"></span>
+                        <img src="https://res.kurly.com/images/marketkurly/logo/logo_x2.png" alt="마켓컬리 로고"
+                            style="display: block;">
+                    </a>
+
+                </h1>
+            </div>
+        </header>
+
+        <!--본문-->
+        <main>
+            <div class="section_login">
+                <h1 class="tit_login">로그인</h1>
+                <div class="login_view">
+                    <form name="loginform">
+                        아이디: &nbsp;&nbsp; <input type="text" name="id" size="30" placeholder="아이디를 입력해주세요"><br>
+                        비밀번호: <input type="password" name="password" size="30" placeholder="비빌번호를 입력해주세요"><br>
+                        <p> </p>
+                        <div class="btn_type">
+                            <button type="submit" class="btn" onclick="frm_login()">로그인</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!--꼬리말-->
+
+    <body> </body>
+</body>
+
+</html>

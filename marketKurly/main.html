@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>쇼핑몰 앱</title>
+    <link href="mainStyle.css" rel="stylesheet" type="text/css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            //사용할 배너
+            var $banner = $(".banner").find("ul");
+
+            var $bannerWidth = $banner.children().outerWidth();
+            var $bannerHeight = $banner.children().outerHeight();
+            var $bannerLength = $banner.children().length;
+            var rollingId;
+
+            //정해진 초마다 함수 실행
+            rollingId = setInterval(function () { rollingStart(); }, 3000);//다음 이미지로 롤링 애니메이션 할 시간차
+
+            //마우스 오버시 롤링을 멈춘다.
+            $banner.mouseover(function () {
+                clearInterval(rollingId);
+                $(this).css("cursor", "pointer");
+            });
+            //마우스 아웃되면 다시 시작
+            $banner.mouseout(function () {
+                rollingId = setInterval(function () { rollingStart(); }, 3000);
+                $(this).css("cursor", "default");
+            });
+
+            function rollingStart() {
+                $banner.css("width", $bannerWidth * $bannerLength + "px");
+                $banner.css("height", $bannerHeight + "px");
+
+                $banner.animate({ left: - $bannerWidth + "px" }, 1500, function () { //숫자는 롤링 진행되는 시간이다.
+                    $(this).append("<li>" + $(this).find("li:first").html() + "</li>");//첫번째 이미지를 마지막 끝에 복사(이동이 아니라 복사)해서 추가한다.
+                    $(this).find("li:first").remove();//뒤로 복사된 첫번재 이미지는 필요 없으니 삭제한다.
+                    $(this).css("left", 0);//다음 움직임을 위해서 배너 좌측의 위치값을 초기화 한다.
+                    //이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
+                });
+            }
+
+        }); 
+    </script>
+
+    <!-- 스크롤 스크립트 -->
+    <script>
+        $(document).ready(function () {
+            var $gnbMenuOffset = $('#gnbMenu').offset().top;//메뉴 위치 파악
+
+            $(window).on("scroll", function () {
+                if ($(document).scrollTop() > $gnbMenuOffset) {
+                    $('#gnbMenu').addClass('fixed');//메뉴에 fixed클래스를 추가하여 고정시키고
+                } else {
+                    $('#gnbMenu').removeClass('fixed');//그렇지 않으면 제거한다.
+                }
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <!-- 전체 영역 -->
+    <div class="container">
+        <!--헤더-->
+        <header id="header_main">
+            <!--사용자 메뉴-->
+            <div id="userMenu">
+                <ul id="list_user">
+                    <li class="user_delivery"> <a href="#">배송지역 검색</a></li>
+                    <li class="user_member"> <a href="#">고객센터</a> |&nbsp; </li>
+                    <li class="user_login"> <a href="join.html">회원가입</a> |&nbsp; </li>
+                    <li class="user_join"> <a href="login.html">로그인</a> |&nbsp; </li>
+                </ul>
+            </div>
+
+            <!--회사 로고-->
+            <div id="headerlogo">
+                <h1 class="logo">
+                    <a href="main.html" class="logo_image">
+                        <span id="gnbLogoContainer"></span>
+                        <img src="https://res.kurly.com/images/marketkurly/logo/logo_x2.png" alt="마켓컬리 로고"
+                            style="display: block;">
+                    </a>
+
+                </h1>
+            </div>
+
+            <!-- 메뉴(신상품,베스트,알뜰쇼핑,이벤트) -->
+            <div id="gnbMenu">
+                <div class="inner">
+                    <div class="gnb_main">
+                        <ul class="gnb">
+                            <li class="menu_1"><a href="#">전체 카테고리</a> |&nbsp;</li>
+                            <li class="menu_2"><a href="#">신상품</a> |&nbsp;</li>
+                            <li class="menu_3"><a href="#">베스트</a> |&nbsp;</li>
+                            <li class="menu_4"><a href="#">알뜰쇼핑</a> |&nbsp;</li>
+                            <li class="menu_5"><a href="#">이벤트</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </header>
+
+
+        <!--본문-->
+        <article class="content" id="main_content">
+            <!--배너-->
+            <div class="banner">
+                <ul>
+                    <li><img src="https://img-cf.kurly.com/shop/data/main/1/pc_img_1590037622.jpg" width="1000px"
+                            height="210px"></li>
+                    <li><img src="https://img-cf.kurly.com/shop/data/main/1/pc_img_1601969877.jpg" width="1000px"
+                            height="210px"></li>
+                    <li><img src="https://img-cf.kurly.com/shop/data/main/1/pc_img_1596164134.jpg" width="1000px"
+                            height="210px"></li>
+                    <li><img src="https://img-cf.kurly.com/shop/data/main/1/pc_img_1596605442.jpg" width="1000px"
+                            height="210px"></li>
+                    <li><img src="https://img-cf.kurly.com/shop/data/main/1/pc_img_1601892752.jpg" width="1000px"
+                            height="210px"></li>
+                </ul>
+            </div>
+
+            <!--상품 목록(main)-->
+            <div class="main_type1">
+                <div class="main_1">
+                    <h1>이 상품 어때요?</h1>
+                </div>
+                <div class="product_list">
+                    <a class="list"><img src="https://img-cf.kurly.com/shop/data/goods/1516156675958l0.jpg"
+                            width="200px" height="300px">
+                        <p>요거트 세트</p>
+                        <p>5,600원</p>
+                    </a>
+                    <a class="list">
+                        <img src="https://img-cf.kurly.com/shop/data/goods/1529924222496l0.jpg" width="200px"
+                            height="300px">
+                        <p>아이스크림 세트</p>
+                        <p>1,0600원</p>
+                    </a>
+                    <a class="list"><img src="https://img-cf.kurly.com/shop/data/goods/1545028163966l0.jpg"
+                            width="200px" height="300px">
+                        <p>다이어트 음료</p>
+                        <p>1,0150원</p>
+                    </a>
+                    <a class="list"><img src="https://img-cf.kurly.com/shop/data/goods/1547100585626l0.jpg"
+                            width="200px" height="300px">
+                        <p>불난 쭈구미</p>
+                        <p>1,5000원</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="main_type2">
+                <div class="main">
+                    <h1>이벤트 소식</h1>
+                </div>
+                <div class="product_list">
+                    <a class="list"><img src="https://img-cf.kurly.com/shop/data/goods/1550715997883l0.jpg"
+                            width="200px" height="300px">
+                        <p>요거트 세트</p>
+                        <p class="p1">하루를 시원하게 보내자!!</p>
+                    </a>
+                    <a class="list">
+                        <img src="https://img-cf.kurly.com/shop/data/goods/1529924222496l0.jpg" width="200px"
+                            height="300px">
+                        <p>주방그릇 모음전</p>
+                        <p class="p1">주방생활의 로망</p>
+                    </a>
+                    <a class="list"><img src="https://img-cf.kurly.com/shop/data/goods/1600314092343l0.jpg"
+                            width="200px" height="300px">
+                        <p>다양한 도넛 세트</p>
+                        <p class="p1">다양한 맛의 빵 모음</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="main_type3">
+                <div class="main">
+                    <h1>알뜰 상품</h1>
+                </div>
+                <div class="product_list">
+                    <a class="list"><img src="https://img-cf.kurly.com/shop/data/goods/1591679368159l0.jpg"
+                            width="200px" height="300px">
+                        <p>신선한 해산물 전복</p>
+                        <p>1,7000원</p>
+                    </a>
+                    <a class="list">
+                        <img src="https://img-cf.kurly.com/shop/data/goods/1599460304435l0.jpg" width="200px"
+                            height="300px">
+                        <p>[늘] 한우 양지 1등급 양지</p>
+                        <p>1,1200원</p>
+                    </a>
+                    <a class="list"><img src="https://img-cf.kurly.com/shop/data/goods/1600077206536y0.jpg"
+                            width="200px" height="300px">
+                        <p>맛난 보쌈, 족발</p>
+                        <p>1,4050원</p>
+                    </a>
+                    <a class="list"><img src="https://img-cf.kurly.com/shop/data/goods/159652242693l0.jpg" width="200px"
+                            height="300px">
+                        <p>[이목] 무항생제 소고기</p>
+                        <p>1,8000원</p>
+                    </a>
+                </div>
+            </div>
+
+        </article>
+
+        <!-- 꼬리말 -->
+        <footer></footer>
+    </div>
+</body>
+
+</html>

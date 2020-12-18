@@ -1,0 +1,76 @@
+.container {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* 헤더1 - userMenu */
+#userMenu {
+    width: 1050px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+#userMenu .user {
+    float: left;
+    height: 37px;
+    padding: 0 22px 0 10px;
+    line-height: 35px;
+    white-space: nowrap;
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline-block;
+    float: right;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 헤더2 - logo */
+#headerLogo {
+    display: block;
+    position: relative;
+    width: 1000px;
+    height: 63px;
+    margin: 0 auto;
+}
+
+.logo_image img {
+    display: block;
+    width: 110px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.section_login {
+    position: relative;
+    width: 340px;
+    margin: 0 auto;
+    padding-top: 90px;
+}
+
+.tit_login {
+    margin-left: 100px;
+}
+
+.login_view {
+    position: center;
+}
+
+.btn {
+    display: inline-block;
+    height: 100%;
+    width: 310px;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: blueviolet;
+    line-height: 51px;
+    text-align: center;
+}

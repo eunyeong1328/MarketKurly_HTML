@@ -1,0 +1,104 @@
+.container {
+    position: relative;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+/* 헤더1 - userMenu */
+#userMenu {
+    width: 1050px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+#userMenu .user {
+    float: left;
+    height: 37px;
+    padding: 0 22px 0 10px;
+    line-height: 35px;
+    white-space: nowrap;
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+li {
+    display: inline-block;
+    float:right;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* 헤더2 - logo */
+#headerLogo {
+    display: block;
+    position: relative;
+    width: 1000px;
+    height: 63px;
+    margin: 0 auto;
+}
+
+.logo_image img {
+    display: block;
+    width: 110px;
+    height: 80px;
+    margin: 0 auto;
+}
+
+.field_head .tit {
+    padding-top: 64px;
+    font-weight: 900;
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+    letter-spacing: -.5px;
+    /*글자 사이 간격 */
+}
+
+.tit {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}
+
+.form {
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
+
+.table {
+    display: block;
+    border-collapse: collapse;
+    /*테이블 선 제거*/
+    border-spacing: 0;
+}
+
+.tbl_comm {
+    margin: 0 auto;
+}
+
+.tbl_comm .table {
+    width: 100px;
+}
+
+.table_submit {
+    padding-left: 100px;
+}
+
+.btn {
+    display: inline-block;
+    height: 50%;
+    width: 90px;
+    font-weight: 500;
+    font-size: 16px;
+    background-color: blueviolet;
+    line-height: 30px;
+    text-align: center;
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link href="joinStyle.css" rel="stylesheet" type="text/css">
+    <script>
+        function fn_send() {
+            var frmjoin = document.frmjoin;
+            var id = frmjoin.id.value;
+            var password = frmjoin.password.value;
+            var passwordConfirm = frmjoin.passwordConfirm.value;
+            var name = frmjoin.name.value;
+            var email = frmjoin.email.value;
+            var phone = frmjoin.phone.value;
+
+            if (id == "" || id.length == 0) {
+                alert("아이디를 입력해주세요")
+            } else if (password == "" || password.length == 0) {
+                alert("비밀번호를 입력해주세요")
+            } else if (passwordConfirm == "" || passwordConfirm.length == 0) {
+                alert("비밀번호를 한번 더 입력해주세요")
+            } else if (password != passwordConfirm) {
+                alert("동일한 비밀번호를 입력해주세요")
+            } else if (name == "" || name.length == 0) {
+                alert("이름을 입력해주세요")
+            } else if (email == "" || email.length == 0) {
+                alert("이메일를 입력해주세요")
+            } else if (phone == "" || phone.length == 0) {
+                alert("연락처를 입력해주세요")
+            } else {
+                frmjoin.method = "get"
+                frmjoin.action = "main.html"
+                frmjoin.submit();
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <!-- 전체 영역 -->
+    <div class="container">
+        <!--헤더-->
+        <header id="header_main">
+            <!--사용자 메뉴-->
+            <div id="userMenu">
+                <ul id="list_user">
+                    <li class="user_delivery"> <a href="#">배송지역 검색</a></li>
+                    <li class="user_member"> <a href="#">고객센터</a> |&nbsp; </li>
+                    <li class="user_login"> <a href="join.html">회원가입</a> |&nbsp; </li>
+                    <li class="user_join"> <a href="login.html">로그인</a> |&nbsp; </li>
+                </ul>
+            </div>
+
+            <!--회사 로고-->
+            <div id="headerlogo">
+                <h1 class="logo">
+                    <a href="main.html" class="logo_image">
+                        <span id="gnbLogoContainer"></span>
+                        <img src="https://res.kurly.com/images/marketkurly/logo/logo_x2.png" alt="마켓컬리 로고"
+                            style="display: block;">
+                    </a>
+
+                </h1>
+            </div>
+        </header>
+
+
+        <!--메인-->
+        <main>
+            <div class="page_article">
+                <div class="type_form member_join">
+                    <div class="field_head">
+                        <h3 class="tit">회원가입</h3>
+                    </div>
+
+                    <form name="frmjoin">
+                        <table class="tbl_comm">
+                            <tbody>
+                                <tr>
+                                    <th>아이디</th>
+                                    <td><input type="text" name="id"></td>
+                                </tr>
+                                <tr>
+                                    <th>비밀번호</th>
+                                    <td><input type="password" name="password"></td>
+                                </tr>
+                                <tr>
+                                    <th>비밀번호 재확인 </th>
+                                    <td><input type="password" name="passwordConfirm"></td>
+                                </tr>
+                                <tr>
+                                    <th>이름</th>
+                                    <td><input type="text" name="name"></td>
+                                </tr>
+                                <tr>
+                                    <th>이메일</th>
+                                    <td><input type="text" name="email"></td>
+                                </tr>
+                                <tr>
+                                    <th>연락처</th>
+                                    <td><input type="text" name="phone"></td>
+                                </tr>
+
+                                <tr>
+                                    <th>
+                                    <td>
+                                        <button type="submit" class="btn" onclick="fn_send()">회원가입</button>
+                                        <button type="reset" class="btn">다시 입력</button>
+                                    </td>
+                                    </th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </form>
+
+                </div>
+            </div>
+        </main>
+
+        <!--꼬리말-->
+        <footer></footer>
+    </div>
+</body>
+
+</html>
