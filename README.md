@@ -1,5 +1,5 @@
 # 로또 번호 생성
-,,,
+```
 import kotlin.random.Random
 import java.util.*
 
@@ -26,5 +26,5 @@ fun main(args: Array<String>){
         println()
     }
 }
-,,,
+```
 
