@@ -13,7 +13,7 @@ fun ran() : List<Int> {//7개의 랜덤숫자 생성
     }
     return lottoNum
 }
-
+                            
 fun main(args: Array<String>){
     println("로또 번호 횟수 입력!!")
     val result = Scanner(System.`in`).nextInt()
