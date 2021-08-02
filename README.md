@@ -1,2 +1,2 @@
-# -portfolio-market
-마켓컬리 html 클론 코딩
+# MarketKurly_HTML_CloneCoding
+마켓컬리 클론 코딩
